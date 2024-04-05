@@ -50,9 +50,41 @@
 
 
 
-// file create 
+// file create  and delete
 
-const fs = require('fs')
+// const fs = require('fs')
+// const input = process.argv;
+// if(input[2]==='add'){
+// fs.writeFileSync(input[3], input[4]);
+// }else if(input[2]==='remove'){
+//  fs.unlinkSync(input[3]);
+// }else{
+//     console.log("invalid input");
+// }
 
-const input = process.argv;
-fs.writeFileSync(input[2], input[3]);
+
+
+
+// CRUD with file system
+
+const { error } = require('console');
+const fs = require('fs');
+const path = require('path');
+
+const dirpath = path.join(__dirname, 'crud');
+const filepath = path.join(dirpath, 'apple.text');
+
+if (!fs.existsSync(dirpath)) {
+  fs.mkdirSync(dirpath, { recursive: true });
+}
+// fs.writeFileSync(filepath, 'hello i am pravesh meena');
+
+// fs.readFile(filepath , 'utf8', (err, item)=>{
+// console.log(item)
+// })
+
+// fs.appendFile(filepath, "this is apple.text file" , (error)=>{
+//     if(!error)console.log("file is updated");
+// })
+
+fs.unlinkSync(filepath);
