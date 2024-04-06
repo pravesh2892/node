@@ -67,16 +67,16 @@
 
 // CRUD with file system
 
-const { error } = require('console');
-const fs = require('fs');
-const path = require('path');
+// const { error } = require('console');
+// const fs = require('fs');
+// const path = require('path');
 
-const dirpath = path.join(__dirname, 'crud');
-const filepath = path.join(dirpath, 'apple.text');
+// const dirpath = path.join(__dirname, 'crud');
+// const filepath = path.join(dirpath, 'apple.text');
 
-if (!fs.existsSync(dirpath)) {
-  fs.mkdirSync(dirpath, { recursive: true });
-}
+// if (!fs.existsSync(dirpath)) {
+//   fs.mkdirSync(dirpath, { recursive: true });
+// }
 // fs.writeFileSync(filepath, 'hello i am pravesh meena');
 
 // fs.readFile(filepath , 'utf8', (err, item)=>{
@@ -87,4 +87,218 @@ if (!fs.existsSync(dirpath)) {
 //     if(!error)console.log("file is updated");
 // })
 
-fs.unlinkSync(filepath);
+// fs.unlinkSync(filepath);
+
+
+
+
+
+//   asynchronous
+
+// let a = 10;
+// let b = 0;
+
+// setTimeout(()=>{
+// b=20;
+// }, 200)
+
+// console.log(a+b);  // output is 10 beacuse setTimeout function ne baad me update kiya or hamara print pahale hi chal gaya 
+
+// how to resolve the asycnronous  drowback problem 
+
+// let a = 10;
+// let b = 0;
+// let waitingData = new Promise ((resolve, reject)=>{
+//     setTimeout(()=>{
+//     resolve(20)
+//     }, 300);
+// })
+
+// waitingData.then((data)=>{
+//     b = data
+//     console.log(a+b)
+// })
+
+
+
+
+
+
+
+//   -----------------Express-------------------
+
+// const express = require('express');
+// const app = express();
+
+// app.get('', (req, res)=>{
+//   res.send('hello this is home page')
+// })
+
+
+// app.get('/about', (req, res)=>{
+//     res.send('hello this is about page')
+//   })
+
+//   app.get('/welcome', (req, res)=>{
+//     res.send('hello this is welcome page')
+//   })
+
+//   app.listen(4500)
+  
+
+
+
+
+
+// render HTML and JSON data
+
+// const express = require('express');
+// const app = express();
+
+// app.get('', (req, res)=>{
+//   res.send(`
+//   <h1>hello this is home page</h1>
+//   <a href= "/welcome" > Go to Welcome page </a>
+//   `)
+// })
+
+
+// app.get('/about', (req, res)=>{
+//     res.send('hello this is about page')
+//   })
+
+//   app.get('/welcome', (req, res)=>{
+//     res.send(`
+//     <input  type="text"/>
+//     <button>Submit</button>
+//     `);
+//   })
+
+//   app.listen(4500)
+
+
+
+
+// remove extension from url
+
+//  const express = require('express');
+//  const path = require("path");
+//  const app = express();
+//  const publicpath = path.join(__dirname, 'public');
+//  app.get('', (_, resp)=>{
+//   resp.sendFile(`${publicpath}/index.html`)
+//  });
+//  app.get('*', (_, resp)=>{
+//     resp.sendFile(`${publicpath}/pageNotFound.html`)
+//    });
+
+
+//  app.listen(4500);
+
+
+
+
+
+
+ // ejs 
+
+//  const { profile } = require('console');
+// const express = require('express');
+//  const path = require("path");
+//  const app = express();
+
+//  app.set('view engine' , 'ejs');
+//  const publicpath = path.join(__dirname, 'public');
+//  app.get('', (_, resp)=>{
+//   resp.sendFile(`${publicpath}/index.html`)
+//  });
+
+
+//    app.get('/profile', (_, resp)=>{
+//     const user ={
+//         name: "pravesh meena",
+//         email: "pravesh.meena2892@gmail.com",
+//         city: "Bhopal"
+//     }
+//     resp.render('profile', {user});
+//    });
+
+//    app.get('*', (_, resp)=>{
+//     resp.sendFile(`${publicpath}/pageNotFound.html`)
+//    });
+//  app.listen(4500);
+
+
+
+
+
+// =======middleware===========
+// const express = require('express');
+
+//  const app = express();
+
+//  const reqtfilter= (req, resp, next)=>{
+//  if(!req.query.age){
+//     resp.send('please provide your age')
+//  }else if(req.query.age<18){
+//     resp.send('you can not access this site')
+//  }
+//  else{
+//     next();
+//  }
+//  }
+// app.use(reqtfilter)
+
+// app.get('/',(req, resp)=>{
+// resp.send('welcome to home page')
+// });
+
+// app.get('/about',(req, resp)=>{
+//     resp.send('welcome to about page')
+//     });
+    
+
+
+// app.listen(4500);
+
+
+
+
+
+
+// Route level middleware 
+// const express = require('express');
+
+//  const app = express();
+
+//  const reqtfilter= (req, resp, next)=>{
+//  if(!req.query.age){
+//     resp.send('please provide your age')
+//  }else if(req.query.age<18){
+//     resp.send('you can not access this site')
+//  }
+//  else{
+//     next();
+//  }
+//  }
+// // app.use(reqtfilter)
+
+// app.get('/',(req, resp)=>{
+// resp.send('welcome to home page')
+// });
+
+// app.get('/about',reqtfilter,(req, resp)=>{
+//     resp.send('welcome to about page')
+//     });
+    
+
+
+// app.listen(4500);
+
+
+
+
+
+// -----------------mongoDB------------------
+
+
