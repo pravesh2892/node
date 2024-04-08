@@ -311,9 +311,19 @@ const dbconnect = require('./mongodb')
 // })
 
 
-const main = async ()=>{
-   let data = await dbconnect();
-   data = await data.find().toArray();
-   console.log(data)
+// const main = async ()=>{
+//    let data = await dbconnect();
+//    data = await data.find().toArray();
+//    console.log(data)
+// }
+// main()
+
+
+
+// =====================mongoose================================
+
+const mongoose = require('mongoose');
+
+const main = async()=>{
+    await mongoose.connect()
 }
-main()
